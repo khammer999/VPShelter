@@ -6,13 +6,32 @@ using System.Threading.Tasks;
 
 namespace VPShelter
 {
-    class Employee
+    abstract class Employee
     {
         // fields
+        private string employeeID = "null";
        
-
         //properties
-        public string employeeID { get; set; }
+        public string EmployeeID
+        {
+            get { return this.employeeID; }
+            set { this.employeeID = value; }
+        }
+
+        //Constructor
+        public Employee()
+        {
+            //default
+        }
+
+        // methods
+
+        public abstract bool ClockIn();
+
+        public abstract bool ShowID();
+
+        
+
 
 
 

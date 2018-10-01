@@ -10,27 +10,25 @@ namespace VPShelter
     {  
         /// fields
 
-        private string petName = "null";
-        private string species = "null";
+        private string name = "null";
+        private string description = "null";
         private int hunger = 10;
         private int thirst = 10;
-        private int waste = 10;
         private int boredom = 10;
-        private int sickness = 0;
-        private int play = 0;
+        
 
         // properties
 
-        public string PetName
+        public string Name
         {
-            get { return this.petName; }
-            set { this.petName = value; }
+            get { return this.name; }
+            set { this.name = value; }
         }
 
-        public string Species
+        public string Description
         {
-            get { return this.species; }
-            set { this.species = value; }
+            get { return this.description; }
+            set { this.description = value; }
         }
 
         public int Hunger
@@ -44,31 +42,12 @@ namespace VPShelter
             get { return this.thirst; }
             set { this.thirst = value; }
         }
-
-        public int Waste
-        {
-            get { return this.waste; }
-            set { this.waste = value; }
-        }
-
+        
         public int Boredom
         {
             get { return this.boredom; }
             set { this.boredom = value; }
         }
-
-        public int Sickness
-        {
-            get { return this.sickness; }
-            set { this.sickness = value; }
-        }
-
-        public int Play
-        {
-            get { return this.play; }
-            set { this.play = value; }
-        }
-
 
         // Constructors
 
@@ -77,24 +56,28 @@ namespace VPShelter
             //default
         }
 
-        public VirtualPet(string species)
+        public VirtualPet(string name, string description)
         {
-            this.PetName = petName;
-            this.Species = species;
+            this.name = name;
+            this.description = description;
         }
 
-        public VirtualPet(string petName, string species)
+        public VirtualPet(string name, string description, int hunger, int thirst, int boredom)
         {
-            this.PetName = petName;
-            this.Species = species;
+            this.name = name;
+            this.description = description;
+            this.hunger = hunger;
+            this.thirst = thirst;
+            this.boredom = boredom;
         }
 
-        //  Methods
+        
+         //  Methods
 
         public void Food()
         {
-            this.Hunger--;
-            this.Sickness++;
+            this.hunger--;
+            this.thirst++;
 
         }
         public void Food(int food)
@@ -105,27 +88,23 @@ namespace VPShelter
 
         public void Water()
         {
-            this.Thirst++;
-            this.sickness++;
+            this.thirst--;
+            
 
         }
         public void Water(int water)
         {
-            this.Thirst = water;
+            this.thirst = water;
 
         }
 
         public void PlayTime()
         {
             this.Boredom--;
-            this.Play++;
+            
         }
 
-        public void PlayTime(int play)
-        {
-            this.Boredom = play;
-            this.Play = play;
-        }
+        
 
 
 
